@@ -1,0 +1,15 @@
+{% extends 'App/main.html' %}
+{% block content %}
+<div class="header-bar">
+    <a href="{% url 'task' %}">&#8592</a>
+</div>
+
+<div class="card-body">
+    <form action="{% url 'delete' item.id %}" method="POST">
+        {% csrf_token %}
+        <p>Are You Sure to Delete : <b>{{item}}</b></p>
+        <input class="button" type="submit" name="Confirm">
+    </form>
+</div>
+
+{% endblock content %}

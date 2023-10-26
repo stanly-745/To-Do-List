@@ -1,0 +1,28 @@
+{% extends 'App/main.html' %}
+{% block content %}
+
+<div class="header-bar"><h1>Register</h1></div>
+<div class="card-body">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <label for="">{{form.username.label}}</label>
+        {{form.username}}
+        <label for="">{{form.password1.label}}</label>
+        {{form.password1}}
+        <label for="">{{form.password2.label}}</label>
+        {{form.password2}}
+        <br> <br>
+        <input class="button" type="submit" value="Register">
+    </form>
+    {% if messages %}
+    <ul class="messages">
+        {%  for message in messages %}
+        <li>{{message}}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    
+    <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+</div>
+
+{% endblock content %}
